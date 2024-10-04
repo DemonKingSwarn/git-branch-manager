@@ -11,8 +11,10 @@ git_color_text()
 get_branches() 
 {
   if [ ${1+x} ]; then
+    # shellcheck disable=SC2046
     gum choose --limit "$1" $(git branch --format="%(refname:short)")
   else
+    # shellcheck disable=SC2046
     gum choose --no-limit $(git branch --format="%(refname:short)")
   fi
 }
